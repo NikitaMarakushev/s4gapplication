@@ -10,6 +10,9 @@ public class User {
         User model = new User();
         model.setId(entity.getId());
         model.setUsername(entity.getUsername());
+        return model;
+
+
     }
 
     public User() {
