@@ -1,18 +1,48 @@
 package com.example.frnicky_spring_test.controller;
 
+import com.example.frnicky_spring_test.entity.UserEntity;
+import com.example.frnicky_spring_test.exception.UserAlreadyExistsException;
+import com.example.frnicky_spring_test.exception.UserNotFoundException;
+import com.example.frnicky_spring_test.repository.UserRepo;
+import com.example.frnicky_spring_test.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
+    @PostMapping
+    public ResponseEntity registration(@RequestBody UserEntity user) {
+        try {
+            userService.registration(user);
+            return ResponseEntity.ok("Server is saved");
+        } catch (UserAlreadyExistsException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error occured");
+        }
+    }
+
     @GetMapping
     public ResponseEntity getUsers() {
         try {
             return ResponseEntity.ok("Server is working");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error occured");
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity getOneUser(@RequestParam Long id) {
+        try {
+            return ResponseEntity.ok(userService.getOne(id));
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error occured");
         }
