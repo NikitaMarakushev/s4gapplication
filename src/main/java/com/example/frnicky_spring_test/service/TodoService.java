@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TodoService {
+
     @Autowired
     private TodoRepo todoRepo;
+
     @Autowired
     private UserRepo userRepo;
 
@@ -24,6 +26,11 @@ public class TodoService {
     public Todo complete(Long id) {
         TodoEntity todo = todoRepo.findById(id).get();
         todo.setCompleted(!todo.getCompleted());
+        return Todo.toModel(todoRepo.save(todo));
+    }
+
+    public Todo getId(Long id) {
+        TodoEntity todo = todoRepo.findById(id).get();
         return Todo.toModel(todoRepo.save(todo));
     }
 }

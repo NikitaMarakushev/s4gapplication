@@ -20,7 +20,7 @@ public class UserController {
     public ResponseEntity registration(@RequestBody UserEntity user) {
         try {
             userService.registration(user);
-            return ResponseEntity.ok("Server is saved");
+            return ResponseEntity.ok("User is already exists");
         } catch (UserAlreadyExistsException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
@@ -28,14 +28,6 @@ public class UserController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity getUsers() {
-        try {
-            return ResponseEntity.ok("Server is working");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error occured");
-        }
-    }
 
     @GetMapping
     public ResponseEntity getOneUser(@RequestParam Long id) {
@@ -48,8 +40,8 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/[id]")
-    public ResponseEntity deleteUSer(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.delete(id));
         } catch (Exception e) {
