@@ -22,7 +22,7 @@ public class TaskController {
     @DeleteMapping
     public ResponseEntity getOneTodo(@RequestParam String taskName) {
         try {
-            return ResponseEntity.ok(taskService.deleteRoadmap(taskName));
+            return ResponseEntity.ok(taskService.deleteTask(taskName));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error occured");
         }

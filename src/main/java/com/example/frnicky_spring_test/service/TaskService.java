@@ -18,7 +18,7 @@ public class TaskService {
         return Task.toModel(taskRepo.save(task));
     }
 
-    public String deleteRoadmap(String name) {
+    public String deleteTask(String name) {
         taskRepo.deleteByName(name);
         return name;
     }

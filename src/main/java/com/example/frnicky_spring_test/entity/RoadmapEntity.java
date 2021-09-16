@@ -1,6 +1,7 @@
 package com.example.frnicky_spring_test.entity;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @Entity
@@ -17,10 +18,18 @@ public class RoadmapEntity {
 
     private ArrayList tasks;
 
-    public RoadmapEntity(String name, String type, String description) {
+    private Array members;
+
+    public RoadmapEntity(
+            String name,
+            String type,
+            String description,
+            Array members;
+    ) {
         this.name = name;
         this.type = type;
         this.description = description;
+        this.members = members;
     }
 
     public String getName() {
