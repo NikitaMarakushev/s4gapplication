@@ -1,13 +1,11 @@
 package com.example.frnicky_spring_test.repository;
-
-import com.example.frnicky_spring_test.entity.RoadmapEntity;
 import com.example.frnicky_spring_test.entity.TaskEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TaskRepo extends CrudRepository<TaskEntity, Long> {
-    RoadmapEntity findByName(String taskName);
+    TaskEntity findByName(String taskName);
 
-    RoadmapEntity deleteByName(String taskName);
+    TaskEntity deleteByName(String taskName);
 
-    RoadmapEntity save(RoadmapEntity roadmap);
+    TaskEntity save(TaskEntity roadmap);
 }
