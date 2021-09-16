@@ -1,13 +1,14 @@
 package com.example.frnicky_spring_test.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
 @Table(name = "roadmap")
 public class RoadmapEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name;
 
     private String type;

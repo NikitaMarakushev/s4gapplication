@@ -3,7 +3,6 @@ package com.example.frnicky_spring_test.controller;
 import com.example.frnicky_spring_test.entity.UserEntity;
 import com.example.frnicky_spring_test.exception.UserAlreadyExistsException;
 import com.example.frnicky_spring_test.exception.UserNotFoundException;
-import com.example.frnicky_spring_test.repository.UserRepo;
 import com.example.frnicky_spring_test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

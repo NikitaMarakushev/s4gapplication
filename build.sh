@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./gradlew bootRun
+mvn spring-boot:run -Dspring-boot.run.profiles=dev,local
