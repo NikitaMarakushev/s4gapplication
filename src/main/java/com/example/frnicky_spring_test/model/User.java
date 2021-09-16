@@ -5,7 +5,7 @@ import com.example.frnicky_spring_test.entity.UserEntity;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class User {
+public class User implements UserInterface {
     private Long id;
     private String userName;
     private List<Todo> todos;

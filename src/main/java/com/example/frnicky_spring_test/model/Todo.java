@@ -2,7 +2,7 @@ package com.example.frnicky_spring_test.model;
 
 import com.example.frnicky_spring_test.entity.TodoEntity;
 
-public class Todo {
+public class Todo implements TodoInterface {
     private Long id;
     private String title;
     private Boolean completed;
