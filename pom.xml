@@ -15,8 +15,32 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url" value="jdbc:mysql://127.0.0.1:3306/frnickyjav" />
+		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+		<property name="hibernate.connection.username" value="frnickyjav_user" />
+		<property name="hibernate.connection.password" value="Derf23fr23c2r2Po2ndr!0_" />
+		<property name="hibernate.connection.autoReconnect" value="true" />
+		<property name="hibernate.connection.autoReconnectForPools" value="true" />
+		<property name="hibernate.connection.is-connection-validation-required" value="true" />
+		<property name="hibernate.connection.testOnBorrow" value="true" />
+		<property name="hibernate.connection.validationQuery" value="SELECT 1" />
+		<property name="hibernate.archive.autodetection" value="class" />
+		<property name="hibernate.show_sql" value="false" />
+		<property name="hibernate.format_sql" value="true" />
+		<property name="hibernate.hbm2ddl.auto" value="update" />
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
