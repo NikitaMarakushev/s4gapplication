@@ -9,13 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping(path = "/users/add", consumes = "application/json", produces = "application/json")
     public ResponseEntity registration(@RequestBody UserEntity user) {
         try {
             userService.registration(user);
@@ -28,7 +27,7 @@ public class UserController {
     }
 
 
-    @GetMapping
+    @GetMapping("/users/get/{id}")
     public ResponseEntity getOneUser(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(userService.getOne(id));
@@ -39,7 +38,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/delete/{id}")
     public ResponseEntity deleteUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.delete(id));
