@@ -1,35 +1,32 @@
 package com.example.frnicky_spring_test.entity;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "roadmap")
 public class RoadmapEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false, unique=true)
+    private Long id;
+
     private String name;
 
+    @Column(name = "type", nullable = false)
     private String type;
 
+    @Column(name = "description", nullable = false)
     private String description;
-
-    private ArrayList tasks;
-
-    private Array members;
 
     public RoadmapEntity(
             String name,
             String type,
-            String description,
-            Array members;
+            String description
     ) {
         this.name = name;
         this.type = type;
         this.description = description;
-        this.members = members;
     }
 
     public String getName() {
@@ -44,23 +41,15 @@ public class RoadmapEntity {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Long getId() {
+        return id;
     }
 
-    public ArrayList getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(ArrayList tasks) {
-        this.tasks = tasks;
+    public void setId(Long id) {
+        this.id = id;
     }
 }

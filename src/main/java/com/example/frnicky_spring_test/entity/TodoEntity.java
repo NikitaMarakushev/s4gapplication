@@ -1,17 +1,23 @@
 package com.example.frnicky_spring_test.entity;
 
-import com.example.frnicky_spring_test.entity.UserEntity;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "todo")
 public class TodoEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false, unique=true)
     private Long id;
+
+    @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "completed", nullable = false)
     private Boolean completed;
+
+    @Column(name = "description", nullable = false)
     private String description;
 
     @ManyToOne

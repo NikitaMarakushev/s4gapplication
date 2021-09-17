@@ -1,7 +1,6 @@
 package com.example.frnicky_spring_test.controller;
 
 import com.example.frnicky_spring_test.entity.RoadmapEntity;
-import com.example.frnicky_spring_test.entity.TodoEntity;
 import com.example.frnicky_spring_test.service.RoadmapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,11 @@ public class RoadmapController {
     @Autowired
     private RoadmapService roadmapService;
 
+    /**
+     * @param roadmap
+     * @param roadmapName
+     * @return
+     */
     @PostMapping
     public ResponseEntity createRoadmap(@RequestBody RoadmapEntity roadmap, @RequestParam String roadmapName) {
         try {
@@ -23,6 +27,10 @@ public class RoadmapController {
         }
     }
 
+    /**
+     * @param name
+     * @return
+     */
     @DeleteMapping("/{name}")
     public ResponseEntity deleteUser(@PathVariable String name) {
         try {

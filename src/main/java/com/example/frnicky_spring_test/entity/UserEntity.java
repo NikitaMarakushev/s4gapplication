@@ -8,9 +8,14 @@ import java.util.List;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false, unique=true)
     private Long id;
+
+    @Column(name = "userName", nullable = false)
     private String userName;
+
+    @Column(name = "password", nullable = false)
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -27,27 +32,11 @@ public class UserEntity {
         return todos;
     }
 
-    public void setTodos(List<TodoEntity> todos) {
-        this.todos = todos;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
     public String getUsername() {
         return userName;
-    }
-
-    public void setUsername(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

@@ -2,8 +2,6 @@ package com.example.frnicky_spring_test.builder;
 
 import com.example.frnicky_spring_test.entity.RoadmapEntity;
 
-import java.lang.reflect.Array;
-
 public class RoadmapBuilder implements BuilderInterface {
 
     String name;
@@ -11,8 +9,6 @@ public class RoadmapBuilder implements BuilderInterface {
     String type;
 
     String description;
-
-    Array members;
 
     @Override
     public void setName(String name) {
@@ -29,16 +25,14 @@ public class RoadmapBuilder implements BuilderInterface {
         this.description = description;
     }
 
-    public void complexAddMembers(Array members) {
-        this.members = members;
-    }
-
+    /**
+     * @return RoadmapEntity
+     */
     public RoadmapEntity buildRoadmap() {
         return new RoadmapEntity(
                 name,
                 type,
-                description,
-                members
+                description
         );
     }
 }

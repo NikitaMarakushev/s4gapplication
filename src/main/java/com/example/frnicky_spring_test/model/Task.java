@@ -17,7 +17,6 @@ public class Task<function> implements TaskInterface {
 
     private String completed;
 
-    @org.jetbrains.annotations.NotNull
     public static Task toModel(TaskEntity entity) {
         Task model = new Task();
         model.setTaskName(entity.getTaskName());
@@ -31,22 +30,6 @@ public class Task<function> implements TaskInterface {
 
     public void setDoneUntil(Date doneUntil) {
         this.doneUntil = doneUntil;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(String completed) {
-        this.completed = completed;
     }
 
     public Long getId() {
