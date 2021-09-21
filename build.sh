@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mvn spring-boot:run -Dspring-boot.run.profiles=dev,local
+mvn spring-boot:run
